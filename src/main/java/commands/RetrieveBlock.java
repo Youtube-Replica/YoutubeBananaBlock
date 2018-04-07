@@ -1,7 +1,7 @@
-package Commands.Get;
+package commands;
 
 
-import Commands.Command;
+import commands.Command;
 import Model.Block;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -13,7 +13,7 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class GetBlock extends Command {
+public class RetrieveBlock extends Command {
    public static int id = 0;
    public void execute() {
        HashMap<String, Object> props = parameters;

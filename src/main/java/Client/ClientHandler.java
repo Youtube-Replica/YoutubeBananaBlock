@@ -30,6 +30,8 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
             Client.service.deleteCommand(a[1]);
         if(a[0].equals("add"))
             Client.service.addCommand(a[1],a[2]);
+        if(a[0].equals("update"))
+            Client.service.updateCommand(a[1],a[2],a[3]);
     }
 
     @Override

@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83a0e0b3-2170-4770-87bb-c6197f471825" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Client/Client.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Client/ClientHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Client/ClientInitializer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Commands/CreateBlock.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BlockService.java" afterPath="$PROJECT_DIR$/src/main/java/Service/BlockService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Block.java" afterPath="$PROJECT_DIR$/src/main/java/Model/Block.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Command.java" afterPath="$PROJECT_DIR$/src/main/java/commands/Command.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/DeleteBlock.java" afterPath="$PROJECT_DIR$/src/main/java/commands/DeleteBlock.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/PostBlock.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/RetrieveBlock.java" afterPath="$PROJECT_DIR$/src/main/java/commands/RetrieveBlock.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BlockService$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BlockService.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Commands/Delete/DeleteBlock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Commands/Get/GetBlock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Commands/Post/PostBlock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Block.class" afterPath="$PROJECT_DIR$/target/classes/Model/Block.class" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/ClientHandler.java" afterPath="$PROJECT_DIR$/src/main/java/Client/ClientHandler.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java" afterPath="$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Commands/hi.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,21 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RetrieveBlock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Commands/RetrieveBlock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ClientHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Client/ClientHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+            <state relative-caret-position="414">
+              <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,8 +44,8 @@
       <file leaf-file-name="ServiceInterface.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="48" column="106" lean-forward="false" selection-start-line="48" selection-start-column="106" selection-end-line="48" selection-end-column="106" />
+            <state relative-caret-position="-398">
+              <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#513#514#0" expanded="true" />
@@ -169,8 +142,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Service/BlockService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Commands/DeleteBlock2.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/Block.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Client/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/Client/ClientInitializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Client/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java" />
       </list>
     </option>
@@ -761,14 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Commands/RetrieveBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Commands/DeleteBlock2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -784,24 +749,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client/ClientHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Commands/DeleteBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -891,10 +838,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Commands/RetrieveBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Client/ClientHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Commands/DeleteBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="48" column="106" lean-forward="false" selection-start-line="48" selection-start-column="106" selection-end-line="48" selection-end-column="106" />
+        <state relative-caret-position="-398">
+          <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#513#514#0" expanded="true" />

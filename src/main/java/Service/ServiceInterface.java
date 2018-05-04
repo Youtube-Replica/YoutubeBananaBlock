@@ -29,8 +29,7 @@ public abstract class ServiceInterface {
             BufferedWriter writer = new BufferedWriter(new FileWriter("target/classes/Commands/"+path));
             String line = "";
             while ((line = reader.readLine()) != null) {
-
-                writer.write(line + '\n');
+                writer.write(line);
             }
             reader.close();
             writer.close();

@@ -1,6 +1,5 @@
-package commands;
+package Commands;
 
-import commands.Command;
 import Model.Block;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;

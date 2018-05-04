@@ -1,19 +1,25 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
 package Commands;
 
 import java.util.HashMap;
 
 public abstract class Command implements Runnable {
-
     protected HashMap<String, Object> parameters;
 
-    final public void init(HashMap<String, Object> parameters) {
+    public Command() {
+    }
+
+    public final void init(HashMap<String, Object> parameters) {
         this.parameters = parameters;
     }
 
     protected abstract void execute();
 
-    final public void run() {
+    public final void run() {
         this.execute();
     }
-
 }

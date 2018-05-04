@@ -9,17 +9,30 @@ import org.json.simple.JSONObject;
 import java.util.ArrayList;
 
 public class Block {
+    static ArangoDB arangoDB;
+    static Block instance = new Block();
+    static String dbName = "scalable";
+    static String collectionName = "block";
 
+    private Block(){
+        arangoDB = new ArangoDB.Builder().build();
+    }
+
+    public static Block getInstance(){
+        return Block.instance;
+    }
+
+    public void setDB(int i){
+        arangoDB = new ArangoDB.Builder().maxConnections(i).build();
+    }
     //Gets channels' info of blocked IDs by user ID
     public static String getBlockByID(int id) {
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "subscriptions";
-        String collectionName = "Block";
+
         JSONObject subscriptionObjectM = new JSONObject();
         JSONArray subscriptionArray = new JSONArray();
         String subs = "";
         //Read Document
-        //haygeely id harod b list ids
+
         try {
             BaseDocument myDocument = arangoDB.db(dbName).collection(collectionName).getDocument("" + id,
                     BaseDocument.class);
@@ -41,20 +54,16 @@ public class Block {
                 }
             }
             subscriptionObjectM.put(id,subscriptionArray);
-                } catch (ArangoDBException e) {
-                    System.err.println("Failed to get document: myKey; " + e.getMessage());
-                }
-                System.out.println(subscriptionObjectM.toString());
-                return subscriptionObjectM.toString();
-
+        } catch (ArangoDBException e) {
+            System.err.println("Failed to get document: myKey; " + e.getMessage());
+        }
+        System.out.println(subscriptionObjectM.toString());
+        return subscriptionObjectM.toString();
 
     }
+
     //Add a new channel blocked by requester ID of blocked ID (add to array of IDs)
     public static String postBlockByID(int id, int blockID){
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "subscriptions";
-        String collectionName = "Block";
-
         ArrayList<Integer> ids = new ArrayList<>();
         //Create Document
         if(arangoDB.db(dbName).collection(collectionName).getDocument("" + id,
@@ -83,10 +92,6 @@ public class Block {
     }
 
     public static String deleteBlockByID(int id, int blockID){
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "subscriptions";
-        String collectionName = "Block";
-
         ArrayList<Long> ids = new ArrayList<>();
         //Delete sub from Document
         //Case 1: not the only subscription

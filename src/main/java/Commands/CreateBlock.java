@@ -1,6 +1,5 @@
-package commands;
+package Commands;
 
-import commands.Command;
 import Model.Block;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -12,7 +11,7 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class PostBlock extends Command {
+public class CreateBlock extends Command {
     public static int id = 0;
     public static int blockID = 0;
     public void execute() {

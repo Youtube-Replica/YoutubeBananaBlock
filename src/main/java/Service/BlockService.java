@@ -1,5 +1,7 @@
-import commands.Command;
-import commands.RetrieveBlock;
+package Service;
+
+import Commands.Command;
+import Model.Block;
 import com.rabbitmq.client.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,20 +13,20 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeoutException;
 
-public class BlockService {
+public class BlockService extends ServiceInterface {
     private static final String RPC_QUEUE_NAME = "block-request";
 
-    public static void main(String [] argv) {
+    public void run() {
 
         //initialize thread pool of fixed size
-        final ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(4);
+        executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(4);
 
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = null;
         try {
             connection = factory.newConnection();
-            final Channel channel = connection.createChannel();
+            channel = connection.createChannel();
 
             channel.queueDeclare(RPC_QUEUE_NAME, false, false, false, null);
 
@@ -32,7 +34,7 @@ public class BlockService {
 
             System.out.println(" [x] Awaiting RPC requests");
 
-            Consumer consumer = new DefaultConsumer(channel) {
+            consumer = new DefaultConsumer(channel) {
                 @Override
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                     AMQP.BasicProperties replyProps = new AMQP.BasicProperties
@@ -54,9 +56,7 @@ public class BlockService {
                         props.put("body", message);
 
                         cmd.init(props);
-//                        cmd1.init(props);
                         executor.submit(cmd);
-//                        executor.submit(cmd1);
                     } catch (RuntimeException e) {
                         System.out.println(" [.] " + e.toString());
                     } catch (IllegalAccessException e) {
@@ -75,16 +75,24 @@ public class BlockService {
                 }
             };
 
-            channel.basicConsume(RPC_QUEUE_NAME, false, consumer);
+            consumerTag = channel.basicConsume(RPC_QUEUE_NAME, false, consumer);
         } catch (IOException | TimeoutException e) {
             e.printStackTrace();
         }
 
     }
+
     public static String getCommand(String message) throws ParseException {
         JSONParser parser = new JSONParser();
         JSONObject messageJson = (JSONObject) parser.parse(message);
         String result = messageJson.get("command").toString();
         return result;
     }
+
+    @Override
+    public void setDB(int dbCount) {
+        Block.getInstance().setDB(dbCount);
+    }
+
+
 }

@@ -1,8 +1,11 @@
 package Model;
 
+import Client.Client;
 import com.arangodb.ArangoDB;
 import com.arangodb.ArangoDBException;
 import com.arangodb.entity.BaseDocument;
+import io.netty.buffer.Unpooled;
+import io.netty.util.CharsetUtil;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -50,11 +53,13 @@ public class Block {
                     subscriptionArray.add(subscriptionObject);
                 }
                 catch (ArangoDBException e) {
+                    Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> Failed to get document: myKey; " + e.getMessage(), CharsetUtil.UTF_8));
                     System.err.println("Failed to get document: myKey; " + e.getMessage());
                 }
             }
             subscriptionObjectM.put(id,subscriptionArray);
         } catch (ArangoDBException e) {
+            Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> Failed to get document: myKey; " + e.getMessage(), CharsetUtil.UTF_8));
             System.err.println("Failed to get document: myKey; " + e.getMessage());
         }
         System.out.println(subscriptionObjectM.toString());
@@ -75,6 +80,7 @@ public class Block {
                 arangoDB.db(dbName).collection(collectionName).insertDocument(myObject);
                 System.out.println("Document created");
             } catch (ArangoDBException e) {
+                Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> Failed to create document " + e.getMessage(), CharsetUtil.UTF_8));
                 System.err.println("Failed to create document. " + e.getMessage());
             }
             return true+"";

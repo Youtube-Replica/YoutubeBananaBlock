@@ -1,8 +1,11 @@
 package Service;
 
+import Client.Client;
 import Commands.Command;
 import Model.Block;
 import com.rabbitmq.client.*;
+import io.netty.buffer.Unpooled;
+import io.netty.util.CharsetUtil;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -31,7 +34,7 @@ public class BlockService extends ServiceInterface {
             channel.queueDeclare(RPC_QUEUE_NAME, false, false, false, null);
 
             channel.basicQos(1);
-
+            Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Information> [x] Awaiting RPC requests ", CharsetUtil.UTF_8));
             System.out.println(" [x] Awaiting RPC requests");
 
             consumer = new DefaultConsumer(channel) {
@@ -41,6 +44,7 @@ public class BlockService extends ServiceInterface {
                             .Builder()
                             .correlationId(properties.getCorrelationId())
                             .build();
+                    Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Information> Responding to corrID: "+ properties.getCorrelationId(), CharsetUtil.UTF_8));
                     System.out.println("Responding to corrID: "+ properties.getCorrelationId());
 
                     String response = "";
@@ -58,14 +62,20 @@ public class BlockService extends ServiceInterface {
                         cmd.init(props);
                         executor.submit(cmd);
                     } catch (RuntimeException e) {
+                        Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> Runtime " + e.getMessage(), CharsetUtil.UTF_8));
                         System.out.println(" [.] " + e.toString());
                     } catch (IllegalAccessException e) {
+                        Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> IllegalAccessException " + e.getMessage(), CharsetUtil.UTF_8));
                         e.printStackTrace();
                     } catch (ParseException e) {
+                        Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> ParseException " + e.getMessage(), CharsetUtil.UTF_8));
                         e.printStackTrace();
                     } catch (InstantiationException e) {
+                        Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> InstantiationException " + e.getMessage(), CharsetUtil.UTF_8));
                         e.printStackTrace();
                     } catch (ClassNotFoundException e) {
+                        Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> ClassNotFoundException " + e.getMessage(), CharsetUtil.UTF_8));
+
                         e.printStackTrace();
                     } finally {
                         synchronized (this) {

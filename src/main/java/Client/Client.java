@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Client {
 
     static ServiceInterface service;
-    static Channel serverChannel;
+    public static Channel serverChannel;
 
     public Client() {
 

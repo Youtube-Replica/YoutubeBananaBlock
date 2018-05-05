@@ -75,7 +75,6 @@ public class BlockService extends ServiceInterface {
                         e.printStackTrace();
                     } catch (ClassNotFoundException e) {
                         Client.serverChannel.writeAndFlush(Unpooled.copiedBuffer("Error> ClassNotFoundException " + e.getMessage(), CharsetUtil.UTF_8));
-
                         e.printStackTrace();
                     } finally {
                         synchronized (this) {
@@ -85,7 +84,7 @@ public class BlockService extends ServiceInterface {
                 }
             };
 
-            consumerTag = channel.basicConsume(RPC_QUEUE_NAME, false, consumer);
+            consumerTag = channel.basicConsume(RPC_QUEUE_NAME, true, consumer);
         } catch (IOException | TimeoutException e) {
             e.printStackTrace();
         }

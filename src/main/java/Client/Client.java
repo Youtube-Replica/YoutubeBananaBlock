@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 public class Client {
 
-    static ServiceInterface service;
+    public static ServiceInterface service;
     public static Channel serverChannel;
 
     public Client() {
@@ -61,8 +61,19 @@ public class Client {
 
     public static void main(String[] args) throws InterruptedException {
         Client c = new Client();
+        new Thread(() -> {
+            try {
+                c.run();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         service = new BlockService();
         service.run();
-        c.run();
     }
 }

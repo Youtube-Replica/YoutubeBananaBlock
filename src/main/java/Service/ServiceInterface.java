@@ -49,7 +49,7 @@ public abstract class ServiceInterface {
             String line = "";
             while ((line = reader.readLine()) != null) {
 
-                writer.write(line + '\n');
+                writer.write(line);
             }
             reader.close();
             writer.close();
@@ -80,10 +80,6 @@ public abstract class ServiceInterface {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    void error(){
-
     }
 
 }

@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83a0e0b3-2170-4770-87bb-c6197f471825" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Block.iml" afterPath="$PROJECT_DIR$/Block.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/Client.java" afterPath="$PROJECT_DIR$/src/main/java/Client/Client.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/BlockService.java" afterPath="$PROJECT_DIR$/src/main/java/Service/BlockService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java" afterPath="$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/Client$1.class" afterPath="$PROJECT_DIR$/target/classes/Client/Client$1.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/Client.class" afterPath="$PROJECT_DIR$/target/classes/Client/Client.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/ClientHandler.class" afterPath="$PROJECT_DIR$/target/classes/Client/ClientHandler.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/ClientInitializer.class" afterPath="$PROJECT_DIR$/target/classes/Client/ClientInitializer.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Commands/Command.class" afterPath="$PROJECT_DIR$/target/classes/Commands/Command.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Commands/CreateBlock.class" afterPath="$PROJECT_DIR$/target/classes/Commands/CreateBlock.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Commands/RetrieveBlock.class" afterPath="$PROJECT_DIR$/target/classes/Commands/RetrieveBlock.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Block.class" afterPath="$PROJECT_DIR$/target/classes/Model/Block.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Service/BlockService$1.class" afterPath="$PROJECT_DIR$/target/classes/Service/BlockService$1.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Service/BlockService.class" afterPath="$PROJECT_DIR$/target/classes/Service/BlockService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Service/ServiceInterface.class" afterPath="$PROJECT_DIR$/target/classes/Service/ServiceInterface.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -105,7 +88,7 @@
       <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
+            <state relative-caret-position="269">
               <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -213,7 +196,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="773" />
@@ -509,10 +492,18 @@
       <option name="presentableId" value="Default" />
       <updated>1524168291483</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixing null pointer">
+      <created>1525479848979</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1525479848979</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -523,7 +514,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40625" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43664122" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -545,6 +536,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixing null pointer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing null pointer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -935,7 +930,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
+        <state relative-caret-position="269">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />

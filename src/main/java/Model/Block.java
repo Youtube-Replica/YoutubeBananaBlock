@@ -37,19 +37,26 @@ public class Block {
         //Read Document
 
         try {
+            System.out.println("in try of get " + id);
             BaseDocument myDocument = arangoDB.db(dbName).collection(collectionName).getDocument("" + id,
                     BaseDocument.class);
+            System.out.println("document: " + myDocument);
             ArrayList<Integer> ids = new ArrayList<>();
             ids = (ArrayList) myDocument.getAttribute("Block_ID");
-
+            System.out.println("ids " + ids);
             for (int i = 0; i < ids.size(); i++) {
                 try {
-                    BaseDocument myDocument2 = arangoDB.db(dbName).collection("Channels").getDocument("" + ids.get(i),
+                    BaseDocument myDocument2 = arangoDB.db(dbName).collection("channel").getDocument("" + ids.get(i),
                             BaseDocument.class);
                     JSONObject subscriptionObject = new JSONObject();
-                    subscriptionObject.put("Name",myDocument2.getAttribute("Name"));
-                    subscriptionObject.put("Category",myDocument2.getAttribute("Category"));
-                    subscriptionObject.put("Profile Picture",myDocument2.getAttribute("ProfilePicture"));
+
+                    subscriptionObject.put("channel_id",id);
+                    subscriptionObject.put("info",myDocument2.getAttribute("info"));
+                    subscriptionObject.put("subscriptions",myDocument2.getAttribute("subscriptions"));
+                    subscriptionObject.put("watched_videos",myDocument2.getAttribute("watched_videos"));
+                    subscriptionObject.put("blocked_channels",myDocument2.getAttribute("blocked_channels"));
+                    subscriptionObject.put("notifications",myDocument2.getAttribute("notifications"));
+
                     subscriptionArray.add(subscriptionObject);
                 }
                 catch (ArangoDBException e) {
@@ -69,13 +76,15 @@ public class Block {
 
     //Add a new channel blocked by requester ID of blocked ID (add to array of IDs)
     public static String postBlockByID(int id, int blockID){
+        System.out.println("in post");
         ArrayList<Integer> ids = new ArrayList<>();
         //Create Document
         if(arangoDB.db(dbName).collection(collectionName).getDocument("" + id,
                 BaseDocument.class) == null) {
             BaseDocument myObject = new BaseDocument();
             myObject.setKey(id+"");
-            myObject.addAttribute("Block_ID", blockID);
+            ids.add(blockID);
+            myObject.addAttribute("Block_ID", ids);
             try {
                 arangoDB.db(dbName).collection(collectionName).insertDocument(myObject);
                 System.out.println("Document created");
@@ -88,6 +97,7 @@ public class Block {
         else{
             BaseDocument myDocument2 = arangoDB.db(dbName).collection(collectionName).getDocument("" + id,
                     BaseDocument.class);
+            System.out.println("myDoc 2: " + myDocument2);
             ids = (ArrayList) myDocument2.getAttribute("Block_ID");
             ids.add(blockID);
             myDocument2.updateAttribute("Block_ID",ids);
@@ -103,7 +113,6 @@ public class Block {
         //Case 1: not the only subscription
         BaseDocument myDocument2 = arangoDB.db(dbName).collection(collectionName).getDocument("" + id,
                 BaseDocument.class);
-
         ids.addAll((ArrayList<Long>)myDocument2.getAttribute("Block_ID"));
         ids.remove(Long.valueOf(blockID));
         myDocument2.updateAttribute("Block_ID",ids);

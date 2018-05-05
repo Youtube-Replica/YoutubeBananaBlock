@@ -1,4 +1,4 @@
-package Commands;
+package commands;
 
 import Model.Block;
 import com.rabbitmq.client.AMQP;
@@ -23,11 +23,11 @@ public class DeleteBlock extends Command {
         blockID = 0;
         try {
             JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
-            System.out.println(props);
-            System.out.println(body.toString());
-            JSONObject params = (JSONObject) parser.parse(body.get("body").toString());
+            System.out.println("body: " + body.toString());
+            JSONObject params = (JSONObject) parser.parse(body.get("parameters").toString());
+            System.out.println("params" + params);
             id = Integer.parseInt(params.get("requester_id").toString());
-            System.out.println(id);
+            System.out.println("id" + id);
             blockID = Integer.parseInt(params.get("blocked_id").toString());
             System.out.println("sub id"+blockID);
         } catch (ParseException e) {
@@ -39,7 +39,6 @@ public class DeleteBlock extends Command {
         String response = Block.deleteBlockByID(id,blockID); //Gets channels subscribed by id
         try {
             channel.basicPublish("", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
-            channel.basicAck(envelope.getDeliveryTag(), false);
         } catch (IOException e) {
             e.printStackTrace();
         }

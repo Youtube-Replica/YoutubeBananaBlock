@@ -1,4 +1,4 @@
-package Commands;
+package commands;
 
 
 import Model.Block;
@@ -35,7 +35,6 @@ public class RetrieveBlock extends Command {
        String response = Block.getBlockByID(id); //Gets channels subscribed by id
        try {
            channel.basicPublish("", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
-           channel.basicAck(envelope.getDeliveryTag(), false);
        } catch (IOException e) {
            e.printStackTrace();
        }

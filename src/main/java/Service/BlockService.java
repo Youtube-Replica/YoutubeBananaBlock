@@ -1,7 +1,7 @@
 package Service;
 
 import Client.Client;
-import Commands.Command;
+import commands.Command;
 import Model.Block;
 import com.rabbitmq.client.*;
 import io.netty.buffer.Unpooled;

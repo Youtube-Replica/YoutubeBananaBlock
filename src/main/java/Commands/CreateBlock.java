@@ -1,4 +1,4 @@
-package Commands;
+package commands;
 
 import Model.Block;
 import com.rabbitmq.client.AMQP;
@@ -22,10 +22,12 @@ public class CreateBlock extends Command {
         id = 0;
         blockID = 0;
         try {
+            System.out.println("in try");
             JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
             JSONObject params = (JSONObject) parser.parse(body.get("body").toString());
             id = Integer.parseInt(params.get("requester_id").toString());
             blockID = Integer.parseInt(params.get("blocked_id").toString());
+            System.out.println("");
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -35,7 +37,6 @@ public class CreateBlock extends Command {
         String response = Block.postBlockByID(id,blockID); //Gets channels subscribed by id
         try {
             channel.basicPublish("", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
-            channel.basicAck(envelope.getDeliveryTag(), false);
         } catch (IOException e) {
             e.printStackTrace();
         }

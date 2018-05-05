@@ -23,15 +23,15 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
         if(a[0].equals("freeze"))
             Client.service.freeze();
         if(a[0].equals("thread"))
-            Client.service.setThread(Integer.parseInt(a[1]));
+            Client.service.setThread(Integer.parseInt(a[2]));
         if(a[0].equals("db"))
-            Client.service.setDB(Integer.parseInt(a[1]));
+            Client.service.setDB(Integer.parseInt(a[2]));
         if(a[0].equals("delete"))
-            Client.service.deleteCommand(a[1]);
+            Client.service.deleteCommand(a[2]);
         if(a[0].equals("add"))
-            Client.service.addCommand(a[1],a[2]);
+            Client.service.addCommand(a[2],a[3]);
         if(a[0].equals("update"))
-            Client.service.updateCommand(a[1],a[2],a[3]);
+            Client.service.updateCommand(a[2],a[3],a[4]);
     }
 
     @Override

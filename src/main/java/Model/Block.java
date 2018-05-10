@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class Block {
     static ArangoDB arangoDB;
     static Block instance = new Block();
-    static String dbName = "scalable";
-    static String collectionName = "block";
+    static String dbName = "subscriptions";
+    static String collectionName = "Block";
 
     private Block(){
         arangoDB = new ArangoDB.Builder().build();
